@@ -25,10 +25,14 @@ const collections = require('./data/collections.json');
 const settings = JSON.parse(fs.readFileSync('./config/settings_data.json', 'utf-8'));
 
 app.get('/', (req, res) => {
-  res.render('index', { products, collections, settings: settings.sections['featured-products'].settings });
+  res.render('index', { 
+    products, 
+    collections, 
+    settings: settings.sections
+  });
 });
 
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
-  console.log(`Servidor corriendo en http://localhost:${PORT}`);
+  console.log(`Server running on http://localhost:${PORT}`);
 });

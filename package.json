@@ -1,6 +1,6 @@
 {
   "name": "shopify-simulator",
-  "version": "1.0.0",
+  "version": "1.0.2",
   "description": "Shopify simulator template",
   "main": "server.js",
   "scripts": {

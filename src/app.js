@@ -1,1 +1,1 @@
-console.log('JavaScript is running!');
+console.log('Gradiweb is online!!!');
