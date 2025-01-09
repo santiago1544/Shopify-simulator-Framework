@@ -1,0 +1,12 @@
+[
+  {
+    "id": 1,
+    "title": "Summer Collection",
+    "products": [1]
+  },
+  {
+    "id": 2,
+    "title": "Home Essentials",
+    "products": [2]
+  }
+]

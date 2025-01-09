@@ -1,0 +1,11 @@
+{
+  "sections": {
+    "featured-products": {
+      "type": "featured-products",
+      "settings": {
+        "heading": "Featured Products",
+        "background_color": "#ffffff"
+      }
+    }
+  }
+}

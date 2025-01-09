@@ -1,0 +1,11 @@
+<section style="background-color: {{ settings.background_color }}">
+  <h2>{{ settings.heading }}</h2>
+  <ul>
+    {% for product in products %}
+      <li>
+        <h3>{{ product.title }}</h3>
+        <p>Price: ${{ product.price }}</p>
+      </li>
+    {% endfor %}
+  </ul>
+</section>
