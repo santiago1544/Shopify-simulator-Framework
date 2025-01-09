@@ -100,11 +100,11 @@ Example:
 
 ### **Schema (`settings_schema.json`)**
 
-The schema defines the settings available for a section. For example:
+The schema defines the settings available for a section. While it's necessary in Shopify, it might not be required here.
 
 ### **Data (`settings_data.json`)**
 
-This file contains the dynamic values for settings:
+This file contains the dynamic values for settings
 
 ## **Setup Instructions**
 
