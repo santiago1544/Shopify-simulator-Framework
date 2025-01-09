@@ -1,14 +1,14 @@
 [
   {
     "id": 1,
-    "title": "Product 1",
+    "title": "T-shirt",
     "price": 19.99,
     "tags": ["clothing", "summer"]
   },
   {
     "id": 2,
-    "title": "Product 2",
-    "price": 29.99,
+    "title": "Mug",
+    "price": 9.99,
     "tags": ["home", "kitchen"]
   }
 ]

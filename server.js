@@ -8,7 +8,8 @@ const app = express();
 const engine = new Liquid({
   root: [
     path.resolve(__dirname, 'templates'),
-    path.resolve(__dirname, 'sections')
+    path.resolve(__dirname, 'sections'),
+    path.resolve(__dirname, 'snippets')
   ],
   extname: '.liquid',
 });
