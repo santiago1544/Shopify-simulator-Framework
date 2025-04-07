@@ -2,12 +2,36 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="/styles.css">
-  <title>Shopify Simulator | Gradiweb</title>
+  <title>Bienvenido al Simulador Shopify</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: sans-serif;
+      background: linear-gradient(to right, #667eea, #764ba2);
+      color: white;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+    .welcome-box {
+      background: rgba(0, 0, 0, 0.4);
+      padding: 2rem 3rem;
+      border-radius: 1rem;
+      text-align: center;
+      box-shadow: 0 0 20px rgba(0,0,0,0.3);
+    }
+    h1 {
+      margin-bottom: 1rem;
+    }
+  </style>
 </head>
 <body>
-  {% include 'featured-products.liquid' %}
-  <script src="/main.js"></script>
+  <div class="welcome-box">
+    <h1>👋 Bienvenido al Simulador de Shopify</h1>
+    <p>Explorá secciones dinámicas, Liquid y todo lo necesario para crear temas.</p>
+  </div>
 </body>
 </html>
