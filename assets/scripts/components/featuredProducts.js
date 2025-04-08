@@ -1,36 +1,29 @@
-import { createProductCard } from '../utils/dom';
-
-export async function loadProducts() {
-  const res = await fetch('/data/products.json');
-  const products = await res.json();
-
-  const productsGrid = document.getElementById('productsGrid');
-  const showMoreBtn = document.getElementById('showMoreBtn');
-
-  const firstSet = products.slice(0, 4);
-  const secondSet = products.slice(4);
-
-  firstSet.forEach(product => {
-    productsGrid.appendChild(createProductCard(product));
-  });
-
-  const hiddenContainer = document.createElement('div');
-  hiddenContainer.classList.add('featured-products__grid', 'hidden');
-  hiddenContainer.id = 'moreProducts';
-
-  secondSet.forEach(product => {
-    hiddenContainer.appendChild(createProductCard(product));
-  });
-
-  productsGrid.parentNode.insertBefore(hiddenContainer, showMoreBtn.parentNode);
-
-  showMoreBtn.addEventListener('click', () => {
-    hiddenContainer.classList.remove('hidden');
-    hiddenContainer.classList.add('fade-in');
-    showMoreBtn.classList.add('fade-out');
-
-    setTimeout(() => {
-      showMoreBtn.remove();
-    }, 400);
-  });
+export function loadProducts() {
+  fetch('/data/products.json')
+    .then(response => {
+      if (!response.ok) {
+        throw new Error(`Error al cargar productos: ${response.status}`);
+      }
+      return response.json();
+    })
+    .then(data => {
+      console.log("aaaaaaaaaaaaaaaaa")
+      const featuredContainer = document.getElementById('products');
+      if (!featuredContainer) return;
+      console.log("aaaaaaaaaaaaaaaaa")
+      const featured = data.filter(p => p.featured);
+      featured.forEach(product => {
+        console.log("aaaaaaaaaaaaaaaaa")
+        const card = document.createElement('div');
+        card.className = 'product-card';
+        
+        card.innerHTML = `
+          <img src="/dist/images/${product.image}" alt="${product.title}" />
+          <h3>${product.title}</h3>
+          <p>${product.price}</p>
+        `;
+        featuredContainer.appendChild(card);
+      });
+    })
+    .catch(err => console.error(err));
 }
