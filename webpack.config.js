@@ -1,5 +1,6 @@
 const path = require('path');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const CopyWebpackPlugin = require('copy-webpack-plugin');
 
 module.exports = {
   entry: './assets/scripts/main.js',
@@ -7,6 +8,7 @@ module.exports = {
     filename: 'main.js',
     path: path.resolve(__dirname, 'dist'),
     clean: true,
+    publicPath: '/dist/',
   },
   module: {
     rules: [
@@ -18,7 +20,7 @@ module.exports = {
           {
             loader: 'sass-loader',
             options: {
-              implementation: require('sass'), // Usa Dart Sass explícitamente
+              implementation: require('sass'),
             },
           },
         ],
@@ -26,15 +28,25 @@ module.exports = {
       {
         test: /\.js$/,
         exclude: /node_modules/,
-        use: {
-          loader: 'babel-loader',
-        },
+        use: 'babel-loader',
+      },
+      {
+        test: /\.(png|jpe?g|gif|avif|webp|svg)$/i,
+        type: 'asset/resource', // Procesa imágenes
       },
     ],
   },
   plugins: [
     new MiniCssExtractPlugin({
       filename: 'main.css',
+    }),
+    new CopyWebpackPlugin({
+      patterns: [
+        {
+          from: path.resolve(__dirname, 'assets/images'),
+          to: 'images',
+        },
+      ],
     }),
   ],
   resolve: {

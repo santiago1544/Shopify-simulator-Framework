@@ -1,17 +1,31 @@
 {% if products.size > 0 %}
+  {% assign featured = products | slice: 0, 4 %}
+  {% assign rest = products | slice: 4, products.size %}
+
   <section class="featured-products" id="products">
     <div class="featured-products__container">
-      <h2 class="featured-products__title">Shuffle Essentials</h2>
-      <div class="featured-products__grid">
-        {% for product in products limit: 4 %}
+      <div class="featured-products__marquee">
+        <div class="featured-products__marquee-content">
+          {% assign message = "★ Shuffle Essentials" %}
+          {% for i in (1..20) %}
+            <h2 class="featured-products__title">{{ message }}</h2>
+          {% endfor %}
+        </div>
+      </div>
+      
+
+      <div class="products-grid">
+        {% for product in featured %}
           {% render 'card', product: product %}
         {% endfor %}
       </div>
 
-      {% if products.size > 4 %}
-        <div id="more-products" class="featured-products__grid hidden">
-          {% for product in products offset: 4 %}
-            {% render 'card', product: product %}
+      {% if rest.size > 0 %}
+        <div id="more-products" class="products-grid hidden">
+          {% for product in rest %}
+            <div class="fade-in">
+              {% render 'card', product: product %}
+            </div>
           {% endfor %}
         </div>
 

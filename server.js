@@ -30,6 +30,11 @@ if (process.env.NODE_ENV !== 'production') {
 // Servir archivos estáticos desde la carpeta 'public'
 app.use(express.static(path.join(__dirname, 'public')));
 
+app.use('/data', express.static(path.join(__dirname, 'data')));
+
+app.use('/dist', express.static(path.join(__dirname, 'dist')));
+
+app.use('/images', express.static(path.join(__dirname, 'assets/images')));
 // Ruta principal
 app.get('/', async (req, res) => {
   try {

@@ -1,6 +1,7 @@
+console.log('main.js loaded'); // Esto debería verse siempre
+
 import { loadProducts } from './components/featuredProducts';
 import '../styles/main.scss';
-
 
 document.addEventListener("DOMContentLoaded", () => {
     loadProducts();

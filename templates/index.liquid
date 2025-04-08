@@ -5,15 +5,16 @@
     <title>Shuffle Store</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
-    <link href="{{ 'styles/main.scss' | asset_url }}" rel="stylesheet">
+    <link href="/dist/main.css" rel="stylesheet">
   </head>
   <body>
-  
-    {% render 'hero' %}
-    {% render 'featured-products' %}
+    {% render 'top-bar' %}
+    {% render 'header' %}
+    {% render 'hero-banner' %}
+    {% render 'featured-products', products: products %}
     {% render 'footer' %}
     
-    <script src="{{ 'scripts/main.js' | asset_url }}" defer></script>
+    <script src="/dist/main.js" defer></script>
   </body>
   </html>
   
