@@ -1,17 +1,17 @@
 // abstracts (utilidades globales)
-@import 'abstracts/variables';
-@import 'abstracts/mixins';
-@import 'abstracts/functions';
+@use 'abstracts/variables' as *;
+@use 'abstracts/mixins' as *;
+@use 'abstracts/functions' as *;
 
 // base (estilos base del proyecto)
-@import 'base/reset';
-@import 'base/typography';
+@use 'base/reset' as *;
+@use 'base/typography' as *;
 
 // layout (estructura del sitio)
-@import 'layout/header';
-@import 'layout/footer';
-@import 'layout/featured-products';
+@use 'layout/header' as *;
+@use 'layout/footer' as *;
+@use 'layout/featured-products' as *;
 
 // components (componentes reutilizables)
-@import 'components/button';
-@import 'components/card';
+@use 'components/button' as *;
+@use 'components/card' as *;

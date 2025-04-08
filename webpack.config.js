@@ -15,7 +15,12 @@ module.exports = {
         use: [
           MiniCssExtractPlugin.loader,
           'css-loader',
-          'sass-loader',
+          {
+            loader: 'sass-loader',
+            options: {
+              implementation: require('sass'), // Usa Dart Sass explícitamente
+            },
+          },
         ],
       },
       {
@@ -24,7 +29,7 @@ module.exports = {
         use: {
           loader: 'babel-loader',
         },
-      }
+      },
     ],
   },
   plugins: [
