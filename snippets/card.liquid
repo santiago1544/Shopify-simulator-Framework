@@ -1,5 +1,4 @@
 <div class="card">
-  <a href="{{ product.url }}">
     <img 
       src="{{ product.image | asset_url }}" 
       alt="{{ product.title }}" 
@@ -10,5 +9,4 @@
     >
     <h3 class="card__title">{{ product.title }}</h3>
     <p class="card__price">${{ product.price }} USD</p>
-  </a>
 </div>
