@@ -1,32 +1,26 @@
-.card {
-    background: white;
-    border-radius: 1rem;
-    box-shadow: 0 0 20px rgba(0,0,0,0.1);
-    overflow: hidden;
-    transition: transform 0.3s;
-  
-    &:hover {
-      transform: translateY(-5px);
-    }
-  
-    &__image {
-      width: 100%;
-      display: block;
-    }
+.featured-products {
+    padding: 4rem 2rem;
+    background: #111;
+    color: white;
   
     &__title {
-      font-size: 1.25rem;
-      margin: 1rem;
+      text-align: center;
+      font-size: 2rem;
+      margin-bottom: 2rem;
     }
   
-    &__price {
-      color: $primary-color;
-      font-weight: bold;
-      margin: 0 1rem 1rem;
+    &__grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+      gap: 2rem;
     }
   }
-  
-  .fade-in {
+
+.hidden {
+  display: none;
+}
+
+.fade-in {
     animation: fadeIn 0.4s ease forwards;
   }
   
