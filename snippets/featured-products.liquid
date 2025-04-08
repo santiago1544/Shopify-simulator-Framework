@@ -1,12 +1,26 @@
-<section class="featured-products" id="products">
+{% if products.size > 0 %}
+  <section class="featured-products" id="products">
     <div class="featured-products__container">
       <h2 class="featured-products__title">Shuffle Essentials</h2>
-  
-      <div id="productsGrid" class="featured-products__grid"></div>
-  
-      <div class="featured-products__action">
-        <button id="showMoreBtn" class="btn btn--primary">Ver todo</button>
+      <div class="featured-products__grid">
+        {% for product in products limit: 4 %}
+          {% render 'card', product: product %}
+        {% endfor %}
       </div>
+
+      {% if products.size > 4 %}
+        <div id="more-products" class="featured-products__grid hidden">
+          {% for product in products offset: 4 %}
+            {% render 'card', product: product %}
+          {% endfor %}
+        </div>
+
+        <div class="featured-products__action">
+          <button id="showMoreBtn" class="btn btn--primary" aria-expanded="false" aria-controls="more-products">Ver todo</button>
+        </div>
+      {% endif %}
     </div>
   </section>
-  
+{% else %}
+  <p>No hay productos destacados disponibles en este momento.</p>
+{% endif %}

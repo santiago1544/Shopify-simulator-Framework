@@ -1,12 +1,17 @@
-// Base
-@import "base/reset";
-@import "base/variables";
-@import "base/mixins";
+// abstracts (utilidades globales)
+@import 'abstracts/variables';
+@import 'abstracts/mixins';
+@import 'abstracts/functions';
 
-// Layout
-@import "layout/header";
-@import "layout/footer";
+// base (estilos base del proyecto)
+@import 'base/reset';
+@import 'base/typography';
 
-// Components
-@import "components/button";
-@import "components/card";
+// layout (estructura del sitio)
+@import 'layout/header';
+@import 'layout/footer';
+@import 'layout/featured-products';
+
+// components (componentes reutilizables)
+@import 'components/button';
+@import 'components/card';
