@@ -1,1 +1,33 @@
 
+{% assign settings = settings_data.sections["hero-banner"].settings %}
+
+<section class="hero-banner">
+  <div 
+    class="hero-banner__background" 
+    style="background-image: url('http://localhost:3000/dist/images/shuffle_t_shirt_black.avif');"
+  >
+    <div class="hero-banner__content">
+      <div class="hero-banner__marquee">
+        <div class="hero-banner__marquee-content">
+          {% assign message = settings.marquee_text %}
+          {% for i in (1..20) %}
+            <h2 class="hero-banner__title">{{ message }}</h2>
+          {% endfor %}
+        </div>
+      </div>
+
+      <a href="{{ settings.button_link }}" class="hero-banner__button">
+        {{ settings.button_text }}
+      </a>
+    </div>
+
+    <div class="hero-banner__marquee">
+        <div class="hero-banner__marquee-content">
+          {% assign message = "★ Shuffle Essentials" %}
+          {% for i in (1..20) %}
+            <h2 class="hero-banner__title">{{ message }}</h2>
+          {% endfor %}
+        </div>
+      </div>
+  </div>
+</section>
