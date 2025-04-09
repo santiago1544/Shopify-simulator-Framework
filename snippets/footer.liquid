@@ -1,0 +1,62 @@
+{% assign footerSettings = settings.sections.footer.settings %}
+
+<footer class="site-footer">
+  <div class="site-footer__container">
+    <div class="site-footer__top">
+      <div class="site-footer__logo">
+        <img src="/dist/images/logo.jpg" alt="Logo" class="site-footer__logo-icon" width="32" height="32" />
+        <span class="site-footer__logo-text">{{ footerSettings.logo_text }}</span>
+      </div>
+
+      <nav class="site-footer__nav">
+        <ul>
+          {% for link in footerSettings.links %}
+            {% if forloop.index <= 4 %}
+              <li><a href="{{ link.url }}">{{ link.label }}</a></li>
+            {% endif %}
+          {% endfor %}
+        </ul>
+
+        <ul class="site-footer__policy-links">
+          {% for link in footerSettings.links %}
+            {% if forloop.index > 4 %}
+              <li><a href="{{ link.url }}">{{ link.label }}</a></li>
+            {% endif %}
+          {% endfor %}
+        </ul>
+      </nav>
+
+      <div class="site-footer__subscribe">
+        <p>Subscribe and receive drop notifications</p>
+        <form action="#" method="POST" class="site-footer__form">
+          <input type="email" placeholder="Enter Email" required />
+          <button type="submit">
+            <img src="/dist/images/correo1.png" alt="Submit" width="40" height="40"/>
+          </button>
+        </form>
+      </div>
+    </div>
+
+    <div class="site-footer__bottom">
+
+      <div class="site-footer__info">
+        <p>© 2024, Shuffle.store Operated by<br />Studio Plaid. Need help?<br />Email support@shuffle.store</p>
+        <div class="site-footer__payments">
+            <p>We accept all major cards, PayPal & crypto</p>
+            <div class="site-footer__payment-icons">
+              <img src="/dist/images/bitcoin.svg.webp" alt="Bitcoin" width="32" height="32"/>
+              <img src="/dist/images/etereun.png" alt="Ethereum" width="32" height="32"/>
+              <img src="/dist/images/litecoin.png" alt="Litecoin" width="32" height="32"/>
+              <img src="/dist/images/cardano.png" alt="Cardano" width="32" height="32"/>
+              <img src="/dist/images/images.png" alt="Solana" width="32" height="32"/>
+            </div>
+          </div>
+        <div class="site-footer__social">
+          <a href="https://facebook.com" target="_blank" rel="noopener noreferrer">FACEBOOK</a>
+          <a href="https://twitter.com" target="_blank" rel="noopener noreferrer">X(TWITTER)</a>
+          <a href="https://instagram.com" target="_blank" rel="noopener noreferrer">INSTAGRAM</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>

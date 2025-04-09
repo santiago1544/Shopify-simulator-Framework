@@ -10,9 +10,9 @@
   <body>
     {% render 'top-bar' %}
     {% render 'header' %}
-    {% render 'hero-banner' %}
+    {% render 'hero-banner', settings: settings %}
     {% render 'featured-products', products: products %}
-    {% render 'footer' %}
+    {% render 'footer', settings: settings%}
     
     <script src="/dist/main.js" defer></script>
   </body>
