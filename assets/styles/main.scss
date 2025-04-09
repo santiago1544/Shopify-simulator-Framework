@@ -12,7 +12,15 @@
 @use 'layout/footer' as *;
 @use 'layout/featured-products' as *;
 @use 'layout/top-bar' as *;
+@use 'layout/hero-banner' as *;
 
 // components (componentes reutilizables)
 @use 'components/button' as *;
 @use 'components/card' as *;
+
+body {
+    background-color: #111 !important;
+    margin: 0;
+    overflow-x: hidden;
+}
+  

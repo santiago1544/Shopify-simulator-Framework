@@ -38,29 +38,7 @@
     }
   }
 
-  &__marquee {
-    overflow: hidden;
-    white-space: nowrap;
-    width: 100%;
-    margin-bottom: 2rem;
-    position: relative;
-  }
 
-  &__marquee-content {
-    display: flex;
-    animation: featuredMarquee 20s linear infinite;
-    white-space: nowrap;
-    align-items: center;
-  }
-
-  &__title {
-    font-size: 2.5rem;
-    font-weight: 700;
-    padding: 0 0.50rem;
-    white-space: nowrap;
-    color: #f0f0f0;
-    display: inline-block;
-  }
 }
 
 @keyframes featuredMarquee {
@@ -74,10 +52,22 @@
 
 .products-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-  gap: 2rem;
+  grid-template-columns: repeat(4, 1fr); // Fuerza 4 columnas siempre
+  gap: 3rem;
   justify-content: center;
   padding: 1rem 1rem;
+
+  @media (max-width: 1200px) {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  @media (max-width: 900px) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @media (max-width: 600px) {
+    grid-template-columns: 1fr;
+  }
 }
 
 .card {

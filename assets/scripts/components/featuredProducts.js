@@ -7,13 +7,10 @@ export function loadProducts() {
       return response.json();
     })
     .then(data => {
-      console.log("aaaaaaaaaaaaaaaaa")
       const featuredContainer = document.getElementById('products');
       if (!featuredContainer) return;
-      console.log("aaaaaaaaaaaaaaaaa")
       const featured = data.filter(p => p.featured);
       featured.forEach(product => {
-        console.log("aaaaaaaaaaaaaaaaa")
         const card = document.createElement('div');
         card.className = 'product-card';
         

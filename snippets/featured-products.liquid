@@ -4,16 +4,6 @@
 
   <section class="featured-products" id="products">
     <div class="featured-products__container">
-      <div class="featured-products__marquee">
-        <div class="featured-products__marquee-content">
-          {% assign message = "★ Shuffle Essentials" %}
-          {% for i in (1..20) %}
-            <h2 class="featured-products__title">{{ message }}</h2>
-          {% endfor %}
-        </div>
-      </div>
-      
-
       <div class="products-grid">
         {% for product in featured %}
           {% render 'card', product: product %}
