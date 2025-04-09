@@ -4,7 +4,7 @@
     left: 0;
     width: 100%;
     height: 2rem;
-    background-color: #762cfb; // morado
+    background-color: #762cfb;
     overflow: hidden;
     z-index: 9999;
     color: white;
@@ -23,7 +23,7 @@
       display: flex;
       width: max-content;
       white-space: nowrap;
-      animation: marquee 30s linear infinite;
+      animation: marquee 60s linear infinite;
     }
   
     &__message {

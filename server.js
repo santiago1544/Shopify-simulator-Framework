@@ -5,6 +5,8 @@ const path = require('path');
 const webpack = require('webpack');
 const webpackDevMiddleware = require('webpack-dev-middleware');
 const webpackConfig = require('./webpack.config.js');
+// Leer datos de configuración
+const settings = JSON.parse(fs.readFileSync(path.join(__dirname, 'config', 'settings_data.json'), 'utf-8'));
 
 const app = express();
 
@@ -42,7 +44,8 @@ app.get('/', async (req, res) => {
     const products = JSON.parse(fs.readFileSync(path.join(__dirname, 'data', 'products.json'), 'utf-8'));
 
     // Renderizar la plantilla 'index' (Liquid buscará index.liquid automáticamente)
-    const html = await engine.renderFile('index', { products });
+    const html = await engine.renderFile('index', { products, settings });
+
     res.send(html);
   } catch (error) {
     console.error('Error al renderizar la página:', error);
