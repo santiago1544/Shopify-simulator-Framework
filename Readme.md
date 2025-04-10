@@ -1,6 +1,6 @@
-# Shopify Simulator Documentation
+# Shopify Simulator
 
-Welcome to **Shopify Simulator**, a lightweight environment designed to help developers explore Shopify's Liquid templating language and dynamic section-based architecture. This project simulates Shopify's core functionalities, enabling developers to practice creating reusable components, iterating through data, and working with dynamic settings.
+Este proyecto es una prueba técnica la cual consiste en un simulador Shopify, el cual al ser una demo reducida del sitio web original, tiene enlaces en el footer que al momento de dar clic, sale como error pero se dejaron para demostrar que dichos enlaces los está consumiento del archivo de settings_data.json, dado a que era uno de los requerimientos de la prueba, del resto las funcionalidades básicas, estilos y diseño responsive están inspirados en el sitio original.
 
 ---
 
@@ -15,7 +15,6 @@ Welcome to **Shopify Simulator**, a lightweight environment designed to help dev
 │   ├── products.json             # Sample product data
 │   ├── collections.json          # Sample collection data
 ├── /public
-│   ├── styles.css                # Compiled CSS file
 │   ├── main.js                   # Compiled JavaScript file
 ├── /sections
 │   ├── featured-products.liquid  # Main section rendering product lists
@@ -24,88 +23,60 @@ Welcome to **Shopify Simulator**, a lightweight environment designed to help dev
 ├── /templates
 │   ├── index.liquid              # Main template file
 ├── /src
-│   ├── styles.scss               # Base SASS file
+│   ├── styles.css                # Base SASS file
 │   ├── app.js                    # Base JavaScript logic
-├── /assets                       # Images for products, banners, and collections
+├── /assets                       
+│   ├── /images                   # Images for products
+│   ├── /scripts                  # JavaScript files
+│       ├── /components                
+│           ├── featuredProducts.js  # JavaScript featuredProducts file
+│           ├── slider.js         # JavaScript slider file
+│           ├── top-bar.js        # JavaScript top-bar file
+│       ├── /utils  
+│           ├── dom.js            # JavaScript dom file
+│       ├── main.js               # JavaScript main file
+│   ├── /styles                
+│       ├── /abstracts
+│           ├── _functions.scss   # SCSS functions file
+│           ├── _minxins.scss     # SCSS mixins file
+│           ├── _variables.scss   # SCSS variables file
+│       ├── /base
+│           ├── _reset.scss       # SCSS reset file
+│           ├── _typography.scss  # SCSS typography file
+│       ├── /components
+│           ├── _button.scss      # SCSS button file
+│           ├── _card.scss        # SCSS card file
+│       ├── /layout
+│           ├── _featured-products.scss  # SCSS featured-products file
+│           ├── _footer.scss      # SCSS footer file
+│           ├── _header.scss      # SCSS header file
+│           ├── _hero-banner.scss # SCSS hero-banner file
+│           ├── _top-bar.scss     # SCSS top-bar file
+│       ├── main.scss             # SCSS main file
+├── /dist
+│   ├── /images                   # Images for products
+│   ├── main.css                  # CSS main file
+│   ├── main.js                   # JavaScript main file
+├── /public
+│   ├── main.js                   # JavaScript main file
+├── /snippets
+│   ├── card.liquid               # Liquid card file
+│   ├── featured-products.liquid  # Liquid featured-products file
+│   ├── footer.liquid             # Liquid footer file
+│   ├── header.liquid             # Liquid header file
+│   ├── hero-banner.liquid        # Liquid hero-banner file
+│   ├── top-bar.liquid            # Liquid top-bar file
+├── /src
+│   ├── styles.css                # CSS styles file
+│   ├── app.js                    # JavaScript app file
+├── /templates
+│   ├── index.liquid              # Liquid index file
 ├── package.json
 ├── webpack.config.js
 ├── server.js
 ```
 
 ---
-
-## **Liquid Basics**
-
-Liquid is a templating language used in Shopify to dynamically render content. Below are the key concepts you'll use in this simulator:
-
-### **Sections**
-
-Sections are modular components that render specific parts of a page. For example, the `featured-products.liquid` file is a section that displays a list of products. Sections can:
-
-- Access dynamic data from `settings_data.json`.
-- Be configured through a schema defined in `settings_schema.json`.
-
-Example:
-
-```liquid
-<section class="featured-products">
-  <h2>{{ settings['featured-products'].settings.heading }}</h2>
-</section>
-```
-
-### **Snippets**
-
-Snippets are reusable components, such as a product card. You can include a snippet using the `{% render %}` tag:
-
-Example:
-
-```liquid
-<div class="product-list">
-  {% for product in products %}
-    {% render 'product-card', product: product %}
-  {% endfor %}
-</div>
-```
-
-### **Iterating Over Objects**
-
-Liquid allows you to iterate over arrays, such as products or collections:
-
-```liquid
-<ul>
-  {% for product in products %}
-    <li>{{ product.title }} - ${{ product.price }}</li>
-  {% endfor %}
-</ul>
-```
-
-### **Filters**
-
-Filters are used to manipulate output. Some common filters:
-
-- `capitalize`: Capitalizes the first letter.
-- `date`: Formats a date.
-- `money`: Formats a number as currency.
-
-Example:
-
-```liquid
-{{ product.price | money }}
-{{ product.created_at | date: "%B %d, %Y" }}
-```
-
----
-
-## **Dynamic Configuration**
-
-### **Schema (`settings_schema.json`)**
-
-The schema defines the settings available for a section. While it's necessary in Shopify, it might not be required here.
-
-### **Data (`settings_data.json`)**
-
-This file contains the dynamic values for settings
-
 ## **Setup Instructions**
 
 ### **Install Dependencies**
@@ -114,32 +85,20 @@ This file contains the dynamic values for settings
 npm install
 ```
 
-### **Run the Server**
-
-```bash
-npm start
-```
-
 ### **Build Styles and Scripts**
 
 ```bash
 npm run build
 ```
 
+### **Run the Server**
+
+```bash
+npm start
+```
+
 ---
-
-## **Additional Notes**
-
-### **Assets**
-
-All product, banner, and collection images are stored in the `/assets` folder. Refer to the `data/products.json` and `data/collections.json` files for mappings.
 
 ### **Testing the Application**
 
 Visit `http://localhost:3000` in your browser to view the simulator in action.
-
----
-
-Feel free to customize the simulator further to match your requirements. Happy coding! 🚀
-
-For more information about Liquid, refer to the [official Liquid documentation](https://liquidjs.com/tutorials/intro-to-liquid.html).
