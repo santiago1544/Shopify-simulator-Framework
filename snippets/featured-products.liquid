@@ -2,7 +2,7 @@
   {% assign featured = products | slice: 0, 4 %}
   {% assign rest = products | slice: 4, products.size %}
 
-  <section class="featured-products" id="products">
+  <section id="featured-products" class="featured-products" id="products">
     <div class="featured-products__container">
       <div class="products-grid">
         {% for product in featured %}

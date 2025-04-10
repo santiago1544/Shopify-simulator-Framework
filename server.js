@@ -43,7 +43,7 @@ app.get('/', async (req, res) => {
     // Leer datos de productos desde el archivo JSON
     const products = JSON.parse(fs.readFileSync(path.join(__dirname, 'data', 'products.json'), 'utf-8'));
 
-    // Renderizar la plantilla 'index' (Liquid buscará index.liquid automáticamente)
+    // Renderizar la plantilla 'index'
     const html = await engine.renderFile('index', { products, settings });
 
     res.send(html);

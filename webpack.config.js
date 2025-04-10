@@ -32,7 +32,7 @@ module.exports = {
       },
       {
         test: /\.(png|jpe?g|gif|avif|webp|svg)$/i,
-        type: 'asset/resource', // Procesa imágenes
+        type: 'asset/resource',
       },
     ],
   },

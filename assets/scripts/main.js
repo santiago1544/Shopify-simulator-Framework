@@ -1,5 +1,3 @@
-console.log('main.js loaded'); // Esto debería verse siempre
-
 import { loadProducts } from './components/featuredProducts';
 import '../styles/main.scss';
 
@@ -23,3 +21,13 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
   
+  document.addEventListener("DOMContentLoaded", function () {
+    const scrollBtn = document.getElementById("scrollToProducts");
+    const targetSection = document.getElementById("featured-products");
+  
+    if (scrollBtn && targetSection) {
+      scrollBtn.addEventListener("click", function () {
+        targetSection.scrollIntoView({ behavior: "smooth" });
+      });
+    }
+  });

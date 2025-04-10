@@ -1,5 +1,5 @@
 import '../assets/styles/main.scss';
-import '../assets/images/hero_banner_img.avif'; // Asegura que Webpack procese esta imagen
+import '../assets/images/hero_banner_img.avif'; 
 
 const express = require('express');
 const { Liquid } = require('liquidjs');
@@ -63,7 +63,7 @@ document.addEventListener('DOMContentLoaded', () => {
     currentIndex += ITEMS_PER_CLICK;
 
     if (currentIndex >= productItems.length) {
-      showMoreBtn.style.display = 'none'; // Oculta el botón si ya no hay más
+      showMoreBtn.style.display = 'none';
     }
   };
 
